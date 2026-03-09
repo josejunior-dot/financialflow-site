@@ -436,7 +436,7 @@
     <a href="#inteligência" onclick="closeMobileMenu()">Inteligência</a>
     <a href="#preços" onclick="closeMobileMenu()">Planos</a>
     <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-    <a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Vi%20o%20site%20do%20FinancialFlow%20e%20quero%20saber%20mais." target="_blank" onclick="closeMobileMenu()" class="btn-nav btn-nav-primary">Falar no WhatsApp</a>
+    <a href="#preços" onclick="closeMobileMenu()" class="btn-nav btn-nav-primary">Entrar na lista de espera</a>
   </div>
 
   <nav class="navbar" id="navbar">
@@ -450,7 +450,7 @@
         <li><a href="#inteligência">Inteligência</a></li>
         <li><a href="#preços">Planos</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Vi%20o%20site%20do%20FinancialFlow%20e%20quero%20saber%20mais." target="_blank" class="btn-nav btn-nav-primary">Falar no WhatsApp</a></li>
+        <li><a href="#preços" class="btn-nav btn-nav-primary">Entrar na lista de espera</a></li>
       </ul>
       <button class="navbar-mobile-toggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
     </div>
@@ -466,7 +466,7 @@
         <h1>O lead chega pelo WhatsApp.<br/><span class="highlight">Sai qualificado com cotação.</span></h1>
         <p class="hero-subtitle">Bot com IA que qualifica o lead, coleta perfil de investidor, roda o Multicálculo em XP, BTG, Inter e Nubank em paralelo, e entrega tudo pronto pro assessor fechar. Zero formulário manual. Zero planilha.</p>
         <div class="hero-actions">
-          <a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Vi%20o%20site%20do%20FinancialFlow%20e%20quero%20saber%20mais." target="_blank" class="btn-hero btn-hero-primary"><i data-lucide="message-circle"></i> Falar no WhatsApp</a>
+          <a href="#preços" class="btn-hero btn-hero-primary"><i data-lucide="bell"></i> Entrar na lista de espera</a>
           <a href="#como-funciona" class="btn-hero btn-hero-outline">Ver como funciona</a>
         </div>
         <div class="hero-stats">
@@ -824,12 +824,12 @@
   <!-- CTA -->
   <section class="cta-section" id="cta">
     <div class="cta-content animate-on-scroll">
-      <h2>Chega de CRM que ninguém usa.<br/><span style="background:linear-gradient(135deg,var(--primary-light),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Veja o bot + Multicálculo em ação.</span></h2>
-      <p>Mande uma mensagem no WhatsApp e veja como o FinancialFlow qualifica o lead, roda o Multicálculo e entrega tudo pronto pro assessor fechar.</p>
+      <h2>Chega de CRM que ninguém usa.<br/><span style="background:linear-gradient(135deg,var(--primary-light),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Garanta seu lugar na fila.</span></h2>
+      <p>O LeadFlow Financial está em fase final de desenvolvimento. Entre na lista de espera e seja um dos primeiros a usar.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
-        <a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Vi%20o%20site%20do%20FinancialFlow%20e%20quero%20ver%20o%20bot%20em%20ação." target="_blank" class="btn-hero btn-hero-primary" style="font-size:1.1rem;padding:18px 40px;"><i data-lucide="message-circle" style="width:22px;height:22px;"></i> Falar no WhatsApp</a>
+        <a href="#preços" class="btn-hero btn-hero-primary" style="font-size:1.1rem;padding:18px 40px;"><i data-lucide="bell" style="width:22px;height:22px;"></i> Entrar na lista de espera</a>
       </div>
-      <p class="cta-note">Atendimento 24/7 &middot; Sem compromisso &middot; Resposta instantanea</p>
+      <p class="cta-note">Sem compromisso &middot; Condições de lançamento &middot; Acesso antecipado</p>
     </div>
   </section>
 
@@ -895,7 +895,7 @@
       if (!name || !email || !phone || !size) return false;
       console.log('Waitlist lead:', { name, email, phone, size });
       const gate = document.getElementById('pricingGate');
-      gate.innerHTML = '<div class="pricing-gate-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><i data-lucide="check" style="width:28px;height:28px;"></i></div><h3>Cadastro realizado!</h3><p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Obrigado, ' + name.split(' ')[0] + '! Vamos te avisar assim que os planos estiverem disponíveis. Fique de olho no seu WhatsApp.</p><a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Me%20cadastrei%20na%20lista%20de%20espera%20do%20LeadFlow%20Financial." target="_blank" class="btn-pricing-gate" style="margin-top:16px;display:inline-flex;text-decoration:none;"><i data-lucide="message-circle" style="width:18px;height:18px;"></i> Falar no WhatsApp</a>';
+      gate.innerHTML = '<div class="pricing-gate-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><i data-lucide="check" style="width:28px;height:28px;"></i></div><h3>Cadastro realizado!</h3><p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Obrigado, ' + name.split(' ')[0] + '! Vamos te avisar assim que os planos estiverem disponíveis. Fique de olho no seu e-mail e WhatsApp.</p>';
       lucide.createIcons();
       return false;
     }
