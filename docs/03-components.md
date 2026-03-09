@@ -21,7 +21,7 @@
 12. [Inteligencia do Lead](#12-inteligencia-do-lead)
 13. [Integracoes](#13-integracoes)
 14. [Metricas](#14-metricas)
-15. [Planos (Lista de Espera)](#15-planos-lista-de-espera)
+15. [Consulte seu Agente Comercial (Solicitar Proposta)](#15-consulte-seu-agente-comercial-solicitar-proposta)
 16. [FAQ](#16-faq)
 17. [CTA](#17-cta)
 18. [Footer](#18-footer)
@@ -498,11 +498,11 @@ Reutiliza classes `.intel-feature`, `.intel-feature-icon`, `.intel-feature-title
 
 ---
 
-## 15. Planos (Lista de Espera)
+## 15. Consulte seu Agente Comercial (Solicitar Proposta)
 
 **Elemento:** `<section class="pricing-section" id="precos">`
 
-Formulario de lista de espera (planos bloqueados, nao revelados).
+Formulario B2B de solicitacao de proposta comercial. Substituiu a antiga secao de planos/lista de espera. O modelo agora e "Consulte seu agente comercial" — nao ha planos fixos exibidos no site.
 
 | Classe | Descricao |
 |---|---|
@@ -512,7 +512,7 @@ Formulario de lista de espera (planos bloqueados, nao revelados).
 | `.pricing-gate-form` | Formulario vertical (flexbox column, gap 12px), max-width 400px. |
 | `.pricing-gate-input` | Input com borda, border-radius 10px, focus: borda verde. |
 | `.pricing-gate-select` | Select estilizado igual ao input. |
-| `.btn-pricing-gate` | Botao gradient (verde -> roxo), border-radius 50px. Hover: translateY(-2px), sombra verde. |
+| `.btn-pricing-gate` | Botao gradient (verde -> roxo), border-radius 50px. Hover: translateY(-2px), sombra verde. Texto: "Solicitar proposta". |
 | `.pricing-gate-benefits` | 3 beneficios em linha com icones check. |
 | `.pricing-gate-note` | Nota de privacidade em cinza. |
 
@@ -522,17 +522,28 @@ Formulario de lista de espera (planos bloqueados, nao revelados).
 3. WhatsApp com DDD (tel, required)
 4. Tamanho da equipe (select: autonomo, pequena, media, grande, escritorio)
 
-**Beneficios:** Sem compromisso, Condicoes de lancamento, Acesso antecipado.
+**Beneficios:** Sem compromisso, Proposta personalizada, Atendimento consultivo.
 
 **Comportamento JS (`submitWaitlist`):**
 - Previne submit padrao
 - Loga dados no console
-- Substitui conteudo do gate por mensagem de confirmacao ("Cadastro realizado!")
+- Substitui conteudo do gate por mensagem de confirmacao ("Proposta solicitada! Um consultor vai entrar em contato pelo WhatsApp.")
 - Recria icones Lucide apos substituicao do HTML
+- **Integracao futura:** Quando o ComercialFlow (CRM B2B da SaltusCon) estiver em producao, os dados do formulario serao enviados via `POST /api/leads` para o ComercialFlow, que acionara o ComercialBot via WhatsApp para engajar o lead
+
+**Fluxo B2B completo (futuro):**
+1. Visitante preenche formulario no site
+2. Dados enviados ao ComercialFlow via API (`POST /api/leads`)
+3. ComercialBot engaja o lead via WhatsApp (8 stations: CONSENT → WELCOME → DISCOVERY → FILTER → VALUE → CLOSING → HANDOFF → FOLLOW_UP)
+4. Pipeline avanca automaticamente (PROSPECCAO → QUALIFICACAO → REUNIAO → PROPOSTA → NEGOCIACAO → GANHO)
+5. Consultor recebe briefing completo e assume o atendimento
+6. Proposta e contrato gerados no ComercialFlow
+
+**ComercialFlow:** https://github.com/josejunior-dot/comercialflow — CRM B2B com Next.js 16, React 19, Prisma 7, PostgreSQL, bot WhatsApp, propostas comerciais, contratos.
 
 ### Planos ocultos (`.pricing-revealed`)
 
-Existem classes preparadas para 4 cards de planos (`.pricing-cards`, `.pricing-card`, `.pricing-card.featured`), mas o container `.pricing-revealed` fica com `display: none` e nao ha logica no JS atual para revela-lo.
+Existem classes preparadas para 4 cards de planos (`.pricing-cards`, `.pricing-card`, `.pricing-card.featured`), mas o container `.pricing-revealed` fica com `display: none` e nao ha logica no JS atual para revela-lo. Com a mudanca para modelo B2B, os planos fixos foram descartados em favor de propostas personalizadas via agente comercial.
 
 ---
 
@@ -683,7 +694,7 @@ Arquivo inline no final do `<body>`.
 | `toggleFaq(btn)` | Accordion single-open no FAQ. |
 | `replayChat()` | Reinicia animacoes do chat no phone mockup. Intervalo: 15s. |
 | Mousemove parallax | Move particulas do hero baseado na posicao do mouse. |
-| `submitWaitlist(e)` | Processa formulario da lista de espera (console.log + substituicao visual). |
+| `submitWaitlist(e)` | Processa formulario de solicitacao de proposta B2B (console.log + substituicao visual). Futuramente integrara com `POST /api/leads` do ComercialFlow. |
 
 ---
 
@@ -701,6 +712,6 @@ Arquivo inline no final do `<body>`.
 - Nao ha framework CSS ou JS — tudo e vanilla.
 - Todo o CSS esta inline no `<style>` do `<head>`.
 - Todo o JS esta inline no `<script>` antes do `</body>`.
-- O formulario de lista de espera nao envia dados a nenhum backend (apenas `console.log`).
+- O formulario de solicitacao de proposta nao envia dados a nenhum backend atualmente (apenas `console.log`). Futuramente integrara com `POST /api/leads` do ComercialFlow (CRM B2B da SaltusCon).
 - Os planos de precos existem no CSS (`.pricing-cards`, `.pricing-card`, etc.) mas o HTML nao renderiza nenhum card de plano — apenas o gate de lista de espera.
 - O logo e referenciado como `logo.png` (arquivo local).

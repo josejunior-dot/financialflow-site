@@ -16,7 +16,7 @@ O JavaScript do site e composto por funcoes e listeners que cuidam de:
 6. Accordion do FAQ
 7. Replay de animacao do chat mockup
 8. Efeito parallax nas particulas do hero
-9. Formulario de waitlist
+9. Formulario de solicitacao de proposta (B2B)
 
 Nao ha arquivos `.js` externos — tudo esta embutido no HTML.
 
@@ -210,7 +210,7 @@ window.addEventListener('mousemove', (e) => {
 
 ---
 
-## 9. Formulario de Waitlist
+## 9. Formulario de Solicitacao de Proposta (B2B)
 
 ### `submitWaitlist(e)`
 
@@ -225,8 +225,8 @@ function submitWaitlist(e) {
   console.log('Waitlist lead:', { name, email, phone, size });
   const gate = document.getElementById('pricingGate');
   gate.innerHTML = '<div class="pricing-gate-icon" ...>...</div>' +
-    '<h3>Cadastro realizado!</h3>' +
-    '<p>Obrigado, ' + name.split(' ')[0] + '! ...</p>';
+    '<h3>Proposta solicitada!</h3>' +
+    '<p>Obrigado, ' + name.split(' ')[0] + '! Um consultor vai entrar em contato...</p>';
   lucide.createIcons();
   return false;
 }
@@ -243,12 +243,13 @@ function submitWaitlist(e) {
   1. Previne o envio padrao do formulario (`e.preventDefault()`).
   2. Captura e limpa (trim) os valores dos campos.
   3. Valida se todos os campos estao preenchidos. Se algum estiver vazio, retorna `false` sem fazer nada.
-  4. Loga os dados no console (em producao, aqui entraria a chamada a uma API/backend).
-  5. Substitui todo o conteudo do container `#pricingGate` por uma mensagem de confirmacao personalizada com o primeiro nome do usuario.
+  4. Loga os dados no console (futuramente, enviara via `POST /api/leads` ao ComercialFlow).
+  5. Substitui todo o conteudo do container `#pricingGate` por uma mensagem de confirmacao: "Proposta solicitada! Um consultor vai entrar em contato pelo WhatsApp."
   6. Chama `lucide.createIcons()` novamente para renderizar o icone de check no HTML injetado.
   7. Retorna `false` para garantir que o formulario nao submeta.
 - **Chamada:** Pelo atributo `onsubmit="return submitWaitlist(event)"` no formulario.
-- **Nota:** Atualmente os dados sao apenas logados no console. Nao ha integracao com backend/API — isso sera implementado futuramente.
+- **Integracao futura com ComercialFlow:** Quando o ComercialFlow (https://github.com/josejunior-dot/comercialflow) estiver em producao, a funcao `submitWaitlist` sera atualizada para enviar os dados via `POST /api/leads` ao ComercialFlow. A partir dai, o ComercialBot (bot WhatsApp do ComercialFlow) assumira o engajamento do lead com 8 stations automaticas (CONSENT → WELCOME → DISCOVERY → FILTER → VALUE → CLOSING → HANDOFF → FOLLOW_UP), avancando o pipeline ate o consultor humano assumir.
+- **Nota:** Atualmente os dados sao apenas logados no console. A funcao mantem o nome `submitWaitlist` por compatibilidade, mas o fluxo agora e de solicitacao de proposta B2B, nao lista de espera.
 
 ---
 

@@ -48,12 +48,12 @@ CRM inteligente para assessores de investimento. Bot WhatsApp com IA qualifica l
 3. Bot + Multicalculo (`#bot`)
 4. Pipeline (`#pipeline`)
 5. Inteligencia (`#inteligencia`)
-6. Planos (`#precos`)
+6. Solicitar proposta (`#precos`)
 7. FAQ (`#faq`)
 
 ### CTA Navbar
 ```
-Entrar na lista de espera
+Solicitar proposta
 ```
 
 ---
@@ -80,7 +80,7 @@ Bot com IA que qualifica o lead, coleta perfil de investidor, roda o Multicalcul
 ### Botoes
 | Botao                      | Tipo    | Destino          |
 |----------------------------|---------|------------------|
-| Entrar na lista de espera  | Primary | `#precos`        |
+| Solicitar proposta         | Primary | `#precos`        |
 | Ver como funciona          | Outline | `#como-funciona` |
 
 ### Stats (3 blocos)
@@ -546,31 +546,31 @@ APIs oficiais, dados protegidos e conformidade total com a legislacao brasileira
 
 ---
 
-## Planos (Lista de Espera)
+## Consulte seu Agente Comercial (Solicitar Proposta)
 
 ### Label
 ```
-Planos
+Fale com um consultor
 ```
 
 ### Titulo (h2)
 ```
-Comece simples.
-Escale sem trocar de plataforma.
+Consulte seu agente comercial.
+Proposta sob medida para sua operacao.
 ```
-- "Escale sem trocar de plataforma." usa estilo gradiente
+- "Proposta sob medida para sua operacao." usa estilo gradiente
 
 ### Subtitulo
 ```
-Escolha o plano ideal para sua operacao. IA, Multicalculo e automacao desde o primeiro dia.
+Cada operacao e unica. Solicite uma proposta personalizada e um consultor especializado vai entrar em contato.
 ```
 
-### Gate (formulario bloqueado)
+### Gate (formulario de solicitacao de proposta)
 **Icone:** `clock`
-**Titulo:** Planos e valores em breve
+**Titulo:** Solicite sua proposta
 **Descricao:**
 ```
-Estamos finalizando os planos do LeadFlow Financial. Deixe seu contato para ser avisado assim que estiver disponivel e garantir condicoes especiais de lancamento.
+Preencha o formulario e um consultor da SaltusCon vai entrar em contato pelo WhatsApp para entender sua operacao e montar uma proposta sob medida.
 ```
 
 ### Campos do formulario
@@ -586,13 +586,13 @@ Estamos finalizando os planos do LeadFlow Financial. Deixe seu contato para ser 
 
 ### Botao
 ```
-Quero ser avisado
+Solicitar proposta
 ```
 
 ### Beneficios (badges)
 1. Sem compromisso
-2. Condicoes de lancamento
-3. Acesso antecipado
+2. Proposta personalizada
+3. Atendimento consultivo
 
 ### Nota
 ```
@@ -601,9 +601,12 @@ Seus dados sao protegidos. Nao enviamos spam.
 
 ### Mensagem de sucesso (apos envio)
 ```
-Cadastro realizado!
-Obrigado, [Nome]! Vamos te avisar assim que os planos estiverem disponiveis. Fique de olho no seu e-mail e WhatsApp.
+Proposta solicitada!
+Obrigado, [Nome]! Um consultor vai entrar em contato pelo seu WhatsApp para entender sua operacao e preparar uma proposta personalizada.
 ```
+
+### Integracao futura com ComercialFlow
+Quando o ComercialFlow estiver em producao, os dados do formulario serao enviados via `POST /api/leads` ao CRM B2B da SaltusCon. O ComercialBot (bot WhatsApp) engajara o lead automaticamente com 8 stations (CONSENT → WELCOME → DISCOVERY → FILTER → VALUE → CLOSING → HANDOFF → FOLLOW_UP), avancando o pipeline ate o consultor humano assumir com briefing completo.
 
 ---
 
@@ -648,23 +651,23 @@ Sim. O primeiro contato do bot e o pedido de consentimento LGPD. Sem aceite, nen
 ### Titulo (h2)
 ```
 Chega de CRM que ninguem usa.
-Garanta seu lugar na fila.
+Fale com um consultor.
 ```
-- "Garanta seu lugar na fila." usa estilo gradiente (verde->roxo)
+- "Fale com um consultor." usa estilo gradiente (verde->roxo)
 
 ### Subtitulo
 ```
-O LeadFlow Financial esta em fase final de desenvolvimento. Entre na lista de espera e seja um dos primeiros a usar.
+O FinancialFlow e o CRM com IA e Multicalculo feito para assessores de investimento. Solicite uma proposta e veja como funciona na pratica.
 ```
 
 ### Botao
 ```
-Entrar na lista de espera
+Solicitar proposta
 ```
 
 ### Nota
 ```
-Sem compromisso - Condicoes de lancamento - Acesso antecipado
+Sem compromisso - Proposta personalizada - Atendimento consultivo
 ```
 
 ---

@@ -4,7 +4,7 @@
 
 **Repositório:** https://github.com/josejunior-dot/financialflow-site
 **Documentação:** [docs/](./docs/)
-**Status:** Produto Concluído
+**Status:** Produto Concluído (modelo B2B)
 **Início do desenvolvimento:** 09/03/2026
 
 ---
@@ -24,7 +24,7 @@
 
 ## 1. Visão Geral do Produto
 
-Landing page e site de marketing do **LeadFlow Financial**, um CRM com IA e Multicálculo voltado para assessores de investimento. O site apresenta as funcionalidades do produto, seções de social proof, pipeline kanban, multicálculo visual, integrações, planos e FAQ. Atualmente a seção de planos está bloqueada com lista de espera ("em breve") e todos os CTAs redirecionam para a lista de espera.
+Landing page e site de marketing do **LeadFlow Financial**, um CRM com IA e Multicálculo voltado para assessores de investimento. O site apresenta as funcionalidades do produto, seções de social proof, pipeline kanban, multicálculo visual, integrações, planos e FAQ. A seção de planos foi substituída por "Consulte seu agente comercial" com formulário de solicitação de proposta (modelo B2B). Todos os CTAs redirecionam para o formulário de solicitação de proposta. Integração futura prevista com ComercialFlow (CRM B2B da SaltusCon) via `POST /api/leads`.
 
 Site estático (HTML/CSS/JS puro) hospedado no GitHub Pages.
 
@@ -46,6 +46,27 @@ Site estático (HTML/CSS/JS puro) hospedado no GitHub Pages.
 ## 3. Cronologia de Desenvolvimento
 
 <!-- ADICIONAR NOVAS ENTRADAS AQUI (mais recente primeiro) -->
+
+### Sessão 2 — 09/03/2026
+
+**Objetivo:** Mudança de estratégia comercial para modelo B2B com integração futura ao ComercialFlow
+
+- Substituição da seção "Planos / Lista de Espera" por "Consulte seu agente comercial" com formulário de solicitação de proposta
+- Remoção de todos os links de WhatsApp direto do site — contato agora é exclusivamente via formulário B2B
+- Botão principal do hero e CTA alterado de "Entrar na lista de espera" para "Solicitar proposta"
+- CTA da navbar alterado para "Solicitar proposta"
+- Mensagem de sucesso do formulário agora informa que "um consultor vai entrar em contato pelo WhatsApp"
+- Definição da arquitetura de integração futura com ComercialFlow (CRM B2B da SaltusCon):
+  - Formulário do site → `POST /api/leads` do ComercialFlow
+  - ComercialBot engaja via WhatsApp (8 stations: CONSENT → WELCOME → DISCOVERY → FILTER → VALUE → CLOSING → HANDOFF → FOLLOW_UP)
+  - Pipeline avança automaticamente (PROSPECÇÃO → QUALIFICAÇÃO → REUNIÃO → PROPOSTA → NEGOCIAÇÃO → GANHO)
+  - Consultor recebe briefing e assume → Proposta e contrato gerados no ComercialFlow
+- Atualização da documentação (03-components, 05-javascript, 06-content, DEVELOPMENT_LOG)
+
+**Commits:**
+- *(documentação atualizada nesta sessão)*
+
+---
 
 ### Sessão 1 — 09/03/2026
 
@@ -84,9 +105,13 @@ Site estático (HTML/CSS/JS puro) hospedado no GitHub Pages.
 **Escolha:** Usar o leadflow-site como referência de estrutura e design
 **Motivo:** Manter consistência visual entre os produtos da linha LeadFlow, reaproveitando padrões de layout e seções já validados.
 
-### Decisão 4: Seção de planos bloqueada
-**Escolha:** Substituir planos por "lista de espera"
-**Motivo:** Produto ainda não está disponível para venda; capturar interesse antecipado sem comprometer com preços.
+### Decisão 4: Modelo comercial B2B com agente comercial
+**Escolha:** Substituir planos fixos e lista de espera por "Consulte seu agente comercial" com formulário de solicitação de proposta
+**Motivo:** Estratégia B2B com propostas personalizadas por consultor, em vez de planos self-service. O formulário alimentará o ComercialFlow (CRM B2B da SaltusCon) via `POST /api/leads` quando estiver em produção.
+
+### Decisão 5: Integração futura com ComercialFlow
+**Escolha:** Arquitetar o fluxo de captação do site para integrar com o ComercialFlow (https://github.com/josejunior-dot/comercialflow)
+**Motivo:** O ComercialFlow é o CRM B2B da SaltusCon (Next.js 16, React 19, Prisma 7, PostgreSQL) com bot WhatsApp, propostas e contratos. O fluxo completo será: formulário do site → API do ComercialFlow → ComercialBot engaja via WhatsApp (8 stations) → pipeline avança → consultor assume com briefing → proposta e contrato gerados no CRM.
 
 ---
 
@@ -163,4 +188,4 @@ git push origin master
 
 ---
 
-*Última atualização: 09/03/2026*
+*Última atualização: 09/03/2026 (Sessão 2 — modelo B2B)*

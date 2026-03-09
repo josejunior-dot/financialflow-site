@@ -279,6 +279,72 @@ Observacao: as tags `rel="preconnect"` para Google Fonts estao com typo (`preço
 
 ---
 
+## Integracao com ComercialFlow
+
+O formulario "Consulte seu agente comercial" (secao Planos/Waitlist) e o ponto de entrada para o **ComercialFlow**, o CRM B2B da SaltusCon.
+
+### ComercialFlow
+
+- **Repositorio:** [https://github.com/josejunior-dot/comercialflow](https://github.com/josejunior-dot/comercialflow)
+- **Descricao:** CRM B2B com IA para gestao comercial, desenvolvido pela SaltusCon
+- **Stack:** Next.js 16, React 19, Prisma 7, PostgreSQL, OpenAI GPT-4o-mini, WhatsApp Cloud API
+
+### Fluxo Completo de Captacao
+
+```mermaid
+sequenceDiagram
+    participant V as Visitante (Site)
+    participant S as financialflow-site
+    participant CF as ComercialFlow API
+    participant CB as ComercialBot (WhatsApp)
+    participant P as Pipeline CRM
+    participant C as Consultor Humano
+
+    V->>S: Preenche formulario (nome, email, WhatsApp, equipe)
+    S->>CF: POST /api/leads
+    CF->>CF: Cria lead no banco (PostgreSQL)
+    CF->>CB: Dispara engajamento via WhatsApp
+
+    Note over CB: 8 Estacoes do ComercialBot
+    CB->>CB: 1. CONSENT (aceite LGPD)
+    CB->>CB: 2. WELCOME (boas-vindas)
+    CB->>CB: 3. DISCOVERY (entender necessidade)
+    CB->>CB: 4. FILTER (qualificar lead)
+    CB->>CB: 5. VALUE (apresentar valor)
+    CB->>CB: 6. CLOSING (fechar reuniao)
+    CB->>CB: 7. HANDOFF (passar para consultor)
+    CB->>CB: 8. FOLLOW_UP (acompanhamento)
+
+    Note over P: Pipeline Automatico
+    P->>P: PROSPECCAO → QUALIFICACAO
+    P->>P: QUALIFICACAO → REUNIAO
+    P->>P: REUNIAO → PROPOSTA
+    P->>P: PROPOSTA → NEGOCIACAO
+    P->>P: NEGOCIACAO → GANHO
+
+    CB->>C: Briefing completo do lead
+    C->>CF: Gera proposta e contrato
+    C->>V: Atendimento personalizado
+```
+
+### Dados Enviados pelo Formulario
+
+| Campo | Tipo | Destino no ComercialFlow |
+|---|---|---|
+| Nome completo | `string` | `lead.name` |
+| Email | `string` | `lead.email` |
+| WhatsApp | `string` | `lead.phone` (usado pelo ComercialBot) |
+| Tamanho da equipe | `string` | `lead.metadata.teamSize` |
+
+### Status Atual da Integracao
+
+- **Formulario:** Implementado no site, porem faz apenas `console.log` dos dados
+- **Integracao real:** Sera ativada quando o ComercialFlow estiver em producao
+- **Endpoint planejado:** `POST /api/leads` do ComercialFlow
+- **Acao necessaria:** Substituir o `console.log` no `submitWaitlist()` por um `fetch()` para a API do ComercialFlow
+
+---
+
 ## Deploy
 
 | Item | Valor |
