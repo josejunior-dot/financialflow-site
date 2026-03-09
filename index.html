@@ -464,7 +464,7 @@
         <h1>O lead chega pelo WhatsApp.<br/><span class="highlight">Sai qualificado com cotação.</span></h1>
         <p class="hero-subtitle">Bot com IA que qualifica o lead, coleta perfil de investidor, roda o Multicálculo em XP, BTG, Inter e Nubank em paralelo, e entrega tudo pronto pro assessor fechar. Zero formulário manual. Zero planilha.</p>
         <div class="hero-actions">
-          <a href="#preços" class="btn-hero btn-hero-primary"><i data-lucide="bell"></i> Entrar na lista de espera</a>
+          <a href="#preços" class="btn-hero btn-hero-primary"><i data-lucide="briefcase"></i> Solicitar proposta</a>
           <a href="#como-funciona" class="btn-hero btn-hero-outline">Ver como funciona</a>
         </div>
         <div class="hero-stats">
@@ -774,9 +774,9 @@
         <p class="section-subtitle animate-on-scroll delay-2" style="margin:0 auto;">Escolha o plano ideal para sua operação. IA, Multicálculo e automação desde o primeiro dia.</p>
       </div>
       <div class="pricing-gate animate-on-scroll delay-3" id="pricingGate">
-        <div class="pricing-gate-icon"><i data-lucide="clock"></i></div>
-        <h3>Planos e valores em breve</h3>
-        <p>Estamos finalizando os planos do LeadFlow Financial. Deixe seu contato para ser avisado assim que estiver disponível e garantir condições especiais de lançamento.</p>
+        <div class="pricing-gate-icon"><i data-lucide="briefcase"></i></div>
+        <h3>Consulte seu agente comercial</h3>
+        <p>O LeadFlow Financial é comercializado exclusivamente via nossos consultores. Preencha seus dados e um especialista entrará em contato para montar a proposta ideal para sua operação.</p>
         <form class="pricing-gate-form" id="pricingGateForm" onsubmit="return submitWaitlist(event)">
           <input type="text" class="pricing-gate-input" id="gateName" placeholder="Seu nome" required>
           <input type="email" class="pricing-gate-input" id="gateEmail" placeholder="Seu melhor e-mail" required>
@@ -789,12 +789,12 @@
             <option value="20">Equipe grande (16 a 30)</option>
             <option value="50">Escritório/franquia (30+)</option>
           </select>
-          <button type="submit" class="btn-pricing-gate"><i data-lucide="bell" style="width:18px;height:18px;"></i> Quero ser avisado</button>
+          <button type="submit" class="btn-pricing-gate"><i data-lucide="send" style="width:18px;height:18px;"></i> Solicitar proposta</button>
         </form>
         <div class="pricing-gate-benefits">
           <div class="pricing-gate-benefit"><i data-lucide="check"></i> Sem compromisso</div>
-          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Condições de lançamento</div>
-          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Acesso antecipado</div>
+          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Proposta personalizada</div>
+          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Atendimento consultivo</div>
         </div>
         <p class="pricing-gate-note">Seus dados são protegidos. Não enviamos spam.</p>
       </div>
@@ -822,12 +822,12 @@
   <!-- CTA -->
   <section class="cta-section" id="cta">
     <div class="cta-content animate-on-scroll">
-      <h2>Chega de CRM que ninguém usa.<br/><span style="background:linear-gradient(135deg,var(--primary-light),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Garanta seu lugar na fila.</span></h2>
-      <p>O LeadFlow Financial está em fase final de desenvolvimento. Entre na lista de espera e seja um dos primeiros a usar.</p>
+      <h2>Chega de CRM que ninguém usa.<br/><span style="background:linear-gradient(135deg,var(--primary-light),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Fale com um consultor.</span></h2>
+      <p>Quer saber como o LeadFlow Financial pode transformar a operação do seu escritório? Solicite uma proposta personalizada.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
-        <a href="#preços" class="btn-hero btn-hero-primary" style="font-size:1.1rem;padding:18px 40px;"><i data-lucide="bell" style="width:22px;height:22px;"></i> Entrar na lista de espera</a>
+        <a href="#preços" class="btn-hero btn-hero-primary" style="font-size:1.1rem;padding:18px 40px;"><i data-lucide="briefcase" style="width:22px;height:22px;"></i> Solicitar proposta</a>
       </div>
-      <p class="cta-note">Sem compromisso &middot; Condições de lançamento &middot; Acesso antecipado</p>
+      <p class="cta-note">Sem compromisso &middot; Proposta personalizada &middot; Atendimento consultivo</p>
     </div>
   </section>
 
@@ -893,7 +893,7 @@
       if (!name || !email || !phone || !size) return false;
       console.log('Waitlist lead:', { name, email, phone, size });
       const gate = document.getElementById('pricingGate');
-      gate.innerHTML = '<div class="pricing-gate-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><i data-lucide="check" style="width:28px;height:28px;"></i></div><h3>Cadastro realizado!</h3><p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Obrigado, ' + name.split(' ')[0] + '! Vamos te avisar assim que os planos estiverem disponíveis. Fique de olho no seu e-mail e WhatsApp.</p>';
+      gate.innerHTML = '<div class="pricing-gate-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><i data-lucide="check" style="width:28px;height:28px;"></i></div><h3>Recebemos seu contato!</h3><p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Obrigado, ' + name.split(' ')[0] + '! Um consultor especializado vai entrar em contato em breve para montar a proposta ideal para sua operação.</p>';
       lucide.createIcons();
       return false;
     }
