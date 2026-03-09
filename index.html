@@ -776,109 +776,29 @@
         <p class="section-subtitle animate-on-scroll delay-2" style="margin:0 auto;">Escolha o plano ideal para sua operação. IA, Multicálculo e automação desde o primeiro dia.</p>
       </div>
       <div class="pricing-gate animate-on-scroll delay-3" id="pricingGate">
-        <div class="pricing-gate-icon"><i data-lucide="lock-keyhole"></i></div>
-        <h3>Veja os planos e valores</h3>
-        <p>Preencha seus dados para desbloquear a tabela de preços e receber uma proposta personalizada para sua operação.</p>
-        <form class="pricing-gate-form" id="pricingGateForm" onsubmit="return unlockPricing(event)">
+        <div class="pricing-gate-icon"><i data-lucide="clock"></i></div>
+        <h3>Planos e valores em breve</h3>
+        <p>Estamos finalizando os planos do LeadFlow Financial. Deixe seu contato para ser avisado assim que estiver disponível e garantir condições especiais de lançamento.</p>
+        <form class="pricing-gate-form" id="pricingGateForm" onsubmit="return submitWaitlist(event)">
           <input type="text" class="pricing-gate-input" id="gateName" placeholder="Seu nome" required>
           <input type="email" class="pricing-gate-input" id="gateEmail" placeholder="Seu melhor e-mail" required>
           <input type="tel" class="pricing-gate-input" id="gatePhone" placeholder="WhatsApp (com DDD)" required>
           <select class="pricing-gate-select" id="gateSize" required>
             <option value="" disabled selected>Tamanho da equipe</option>
-            <option value="1">Assessor autonomo (1)</option>
-            <option value="3">Equipe pequena (2-5)</option>
-            <option value="8">Equipe media (6-15)</option>
-            <option value="20">Equipe grande (16-30)</option>
+            <option value="1">Assessor autônomo (1)</option>
+            <option value="3">Equipe pequena (2 a 5)</option>
+            <option value="8">Equipe média (6 a 15)</option>
+            <option value="20">Equipe grande (16 a 30)</option>
             <option value="50">Escritório/franquia (30+)</option>
           </select>
-          <button type="submit" class="btn-pricing-gate"><i data-lucide="unlock" style="width:18px;height:18px;"></i> Desbloquear preços</button>
+          <button type="submit" class="btn-pricing-gate"><i data-lucide="bell" style="width:18px;height:18px;"></i> Quero ser avisado</button>
         </form>
         <div class="pricing-gate-benefits">
           <div class="pricing-gate-benefit"><i data-lucide="check"></i> Sem compromisso</div>
-          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Garantia de 30 dias</div>
-          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Onboarding incluso</div>
+          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Condições de lançamento</div>
+          <div class="pricing-gate-benefit"><i data-lucide="check"></i> Acesso antecipado</div>
         </div>
-        <p class="pricing-gate-note">Seus dados sao protegidos. Não enviamos spam.</p>
-      </div>
-      <div class="pricing-revealed" id="pricingRevealed">
-        <div class="pricing-cards">
-          <div class="pricing-card animate-on-scroll">
-            <div class="pricing-plan-name">Starter</div>
-            <div class="pricing-plan-desc">Assessor autonomo com até 80 leads/mes</div>
-            <div class="pricing-plan-price text-gradient">R$ 197</div>
-            <div class="pricing-plan-period">/mes</div>
-            <div class="pricing-plan-includes">80 leads incluidos/mes</div>
-            <ul class="pricing-plan-features">
-              <li><i data-lucide="check"></i> 1 assessor</li>
-              <li><i data-lucide="check"></i> Bot WhatsApp com IA</li>
-              <li><i data-lucide="check"></i> Multicálculo básico (3 instituições)</li>
-              <li><i data-lucide="check"></i> Pipeline automático</li>
-              <li><i data-lucide="check"></i> Qualificação por conversa</li>
-              <li><i data-lucide="check"></i> 3 automações (follow-up)</li>
-              <li class="extra"><i data-lucide="x"></i> Dashboard gerente</li>
-              <li class="extra"><i data-lucide="x"></i> Relatórios avancados</li>
-            </ul>
-            <div class="pricing-plan-excess">A partir do 81o lead: R$ 2,50/lead</div>
-            <a href="https://wa.me/5534918088778?text=Quero%20o%20plano%20Starter%20do%20FinancialFlow!" target="_blank" class="btn-pricing btn-pricing-outline">Comecar agora</a>
-          </div>
-          <div class="pricing-card featured animate-on-scroll delay-1">
-            <div class="pricing-plan-name">Growth</div>
-            <div class="pricing-plan-desc">Melhor custo-benefício para equipes de até 5 assessores</div>
-            <div class="pricing-plan-price text-gradient">R$ 497</div>
-            <div class="pricing-plan-period">/mes</div>
-            <div class="pricing-plan-includes">200 leads incluidos/mes</div>
-            <ul class="pricing-plan-features">
-              <li><i data-lucide="check"></i> Até 5 assessores</li>
-              <li><i data-lucide="check"></i> Tudo do Starter</li>
-              <li><i data-lucide="check"></i> Multicálculo completo (6+ instituições)</li>
-              <li><i data-lucide="check"></i> 9 automações completas</li>
-              <li><i data-lucide="check"></i> Dashboard do gerente</li>
-              <li><i data-lucide="check"></i> Ranking e SLA</li>
-              <li><i data-lucide="check"></i> Reaplicação 30/60/90d</li>
-              <li class="extra"><i data-lucide="x"></i> API e integrações</li>
-            </ul>
-            <div class="pricing-plan-excess">A partir do 201o lead: R$ 2,00/lead</div>
-            <a href="https://wa.me/5534918088778?text=Quero%20o%20plano%20Growth%20do%20FinancialFlow!" target="_blank" class="btn-pricing btn-pricing-primary">Comecar agora</a>
-          </div>
-          <div class="pricing-card animate-on-scroll delay-2">
-            <div class="pricing-plan-name">Scale</div>
-            <div class="pricing-plan-desc">Para escritórios com até 12 assessores e 400 leads/mes</div>
-            <div class="pricing-plan-price text-gradient">R$ 997</div>
-            <div class="pricing-plan-period">/mes</div>
-            <div class="pricing-plan-includes">400 leads incluidos/mes</div>
-            <ul class="pricing-plan-features">
-              <li><i data-lucide="check"></i> Até 12 assessores</li>
-              <li><i data-lucide="check"></i> Tudo do Growth</li>
-              <li><i data-lucide="check"></i> API aberta</li>
-              <li><i data-lucide="check"></i> Cross-sell automático</li>
-              <li><i data-lucide="check"></i> Suporte prioritário</li>
-              <li><i data-lucide="check"></i> Onboarding dedicado</li>
-              <li><i data-lucide="check"></i> Multi-filial</li>
-              <li><i data-lucide="check"></i> Relatórios BI</li>
-            </ul>
-            <div class="pricing-plan-excess">A partir do 401o lead: R$ 1,50/lead</div>
-            <a href="https://wa.me/5534918088778?text=Quero%20o%20plano%20Scale%20do%20FinancialFlow!" target="_blank" class="btn-pricing btn-pricing-outline">Comecar agora</a>
-          </div>
-          <div class="pricing-card animate-on-scroll delay-3">
-            <div class="pricing-plan-name">Enterprise</div>
-            <div class="pricing-plan-desc">Projeto sob medida para escritórios e redes</div>
-            <div class="pricing-plan-price text-gradient" style="font-size:1.6rem;">Sob consulta</div>
-            <div class="pricing-plan-period">projeto personalizado</div>
-            <div class="pricing-plan-includes">Volume e assessores negociados</div>
-            <ul class="pricing-plan-features">
-              <li><i data-lucide="check"></i> Assessores ilimitados</li>
-              <li><i data-lucide="check"></i> Tudo do Scale</li>
-              <li><i data-lucide="check"></i> SLA de suporte dedicado</li>
-              <li><i data-lucide="check"></i> Customizações sob medida</li>
-              <li><i data-lucide="check"></i> Treinamento da equipe</li>
-              <li><i data-lucide="check"></i> Gerente de conta</li>
-              <li><i data-lucide="check"></i> Contrato anual flexível</li>
-              <li><i data-lucide="check"></i> Deploy dedicado</li>
-            </ul>
-            <div class="pricing-plan-excess" style="color:var(--primary);">Excedente e franquia negociados</div>
-            <a href="https://wa.me/5534918088778?text=Quero%20saber%20sobre%20o%20plano%20Enterprise%20do%20FinancialFlow!" target="_blank" class="btn-pricing btn-pricing-outline">Falar com consultor</a>
-          </div>
-        </div>
+        <p class="pricing-gate-note">Seus dados são protegidos. Não enviamos spam.</p>
       </div>
     </div>
   </section>
@@ -966,20 +886,17 @@
       const x = e.clientX / window.innerWidth, y = e.clientY / window.innerHeight;
       ps.forEach((p, i) => { const s = (i + 1) * 0.5; p.style.transform = `translate(${x*s*20}px, ${y*s*20}px)`; });
     });
-    function unlockPricing(e) {
+    function submitWaitlist(e) {
       e.preventDefault();
       const name = document.getElementById('gateName').value.trim();
       const email = document.getElementById('gateEmail').value.trim();
       const phone = document.getElementById('gatePhone').value.trim();
       const size = document.getElementById('gateSize').value;
       if (!name || !email || !phone || !size) return false;
-      document.getElementById('pricingGate').style.display = 'none';
-      const revealed = document.getElementById('pricingRevealed');
-      revealed.classList.add('active');
+      console.log('Waitlist lead:', { name, email, phone, size });
+      const gate = document.getElementById('pricingGate');
+      gate.innerHTML = '<div class="pricing-gate-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));"><i data-lucide="check" style="width:28px;height:28px;"></i></div><h3>Cadastro realizado!</h3><p style="font-size:.95rem;color:var(--muted);line-height:1.7;">Obrigado, ' + name.split(' ')[0] + '! Vamos te avisar assim que os planos estiverem disponíveis. Fique de olho no seu WhatsApp.</p><a href="https://wa.me/5534918088778?text=Ol%C3%A1!%20Me%20cadastrei%20na%20lista%20de%20espera%20do%20LeadFlow%20Financial." target="_blank" class="btn-pricing-gate" style="margin-top:16px;display:inline-flex;text-decoration:none;"><i data-lucide="message-circle" style="width:18px;height:18px;"></i> Falar no WhatsApp</a>';
       lucide.createIcons();
-      revealed.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-      console.log('Pricing lead:', { name, email, phone, size });
-      setTimeout(() => { revealed.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
       return false;
     }
   </script>
